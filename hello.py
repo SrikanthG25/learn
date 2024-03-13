@@ -270,7 +270,6 @@ import math
 def Roundoff(n, decimals=0):
     multiplier = 10 ** decimals
     return math.floor(n*multiplier + 0.5) / multiplier
-
 # def formatinr(number):
 #     if isinstance(number,str):
 #         if int(eval(number)) <= 0:
@@ -301,31 +300,74 @@ def Roundoff(n, decimals=0):
 # print(asd, type(asd))
 
 
-def formatinr(number):
+# def formatinr(number):
+#     if isinstance(number, str):
+#         if int(eval(number)) <= 0:
+#             neg = True
+#             number = abs(eval(number))
+#         else:
+#             neg = False
+#         s, *d = str(number).partition(".")
+#         r = ",".join([s[x-2:x] for x in range(-3, -len(s), -2)][::-1] + [s[-3:]])
+#         if neg:
+#             r = "-" + r
+#         return "".join([r] + d)
+#     else:
+#         if int(number) <= 0:
+#             neg = True
+#             number = abs(number)
+#         else:
+#             neg = False
+#         s, *d = str(number).partition(".")
+#         r = ",".join([s[x-2:x] for x in range(-3, -len(s), -2)][::-1] + [s[-3:]])
+#         if neg:
+#             r = "-" + r
+#         return r
+
+def formatinr(number,roundoff=None):
     if isinstance(number, str):
-        if int(eval(number)) <= 0:
-            neg = True
-            number = abs(eval(number))
+        # if number == '' : 
+        #     return ''
+        # if number == '-' : 
+        #     return '-'
+        try:
+            if int(eval(number)) < 0:
+                neg = True
+                number = abs(eval(number))
+        except:
+            return number
         else:
             neg = False
+        if roundoff:
+            print(number,type(number),"oooooooooooooooooooooooooo")
+            number = float(number)
+            print(number,type(number),"oooooooooooooooooooooooooo")
+            number = Roundoff(number, 2)
         s, *d = str(number).partition(".")
         r = ",".join([s[x-2:x] for x in range(-3, -len(s), -2)][::-1] + [s[-3:]])
         if neg:
             r = "-" + r
         return "".join([r] + d)
     else:
-        if int(number) <= 0:
+        if int(number) < 0:
             neg = True
             number = abs(number)
         else:
             neg = False
+        if roundoff:
+            print(number,type(number),"oooooooooooooooooooooooooo")
+            number = float(number)
+            print(number,type(number),"oooooooooooooooooooooooooo")
+            number = Roundoff(number,2)
         s, *d = str(number).partition(".")
         r = ",".join([s[x-2:x] for x in range(-3, -len(s), -2)][::-1] + [s[-3:]])
         if neg:
             r = "-" + r
-        return r
-
+        return "".join([r] + d)
 # p = formatinr(round(-111000001))
 # p = formatinr(str(Roundoff(float(-111000001))))
-p = formatinr(str(-111000001))
-print("{:.2f}".format(p), "LLLLLLLLLLLL")
+p=0.53
+print(round(p),type(p))
+p = formatinr(p,roundoff=True)
+print("{}".format(p), type(p),"LLLLLLLLLLLL")
+

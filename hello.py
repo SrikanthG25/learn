@@ -267,6 +267,7 @@
 # print(p,"LLLLLLLLLLLL")
 
 import math
+import textwrap
 def Roundoff(n, decimals=0):
     multiplier = 10 ** decimals
     return math.floor(n*multiplier + 0.5) / multiplier
@@ -324,50 +325,105 @@ def Roundoff(n, decimals=0):
 #             r = "-" + r
 #         return r
 
-def formatinr(number,roundoff=None):
-    if isinstance(number, str):
-        # if number == '' : 
-        #     return ''
-        # if number == '-' : 
-        #     return '-'
-        try:
-            if int(eval(number)) < 0:
-                neg = True
-                number = abs(eval(number))
-        except:
-            return number
-        else:
-            neg = False
-        if roundoff:
-            print(number,type(number),"oooooooooooooooooooooooooo")
-            number = float(number)
-            print(number,type(number),"oooooooooooooooooooooooooo")
-            number = Roundoff(number, 2)
-        s, *d = str(number).partition(".")
-        r = ",".join([s[x-2:x] for x in range(-3, -len(s), -2)][::-1] + [s[-3:]])
-        if neg:
-            r = "-" + r
-        return "".join([r] + d)
-    else:
-        if int(number) < 0:
-            neg = True
-            number = abs(number)
-        else:
-            neg = False
-        if roundoff:
-            print(number,type(number),"oooooooooooooooooooooooooo")
-            number = float(number)
-            print(number,type(number),"oooooooooooooooooooooooooo")
-            number = Roundoff(number,2)
-        s, *d = str(number).partition(".")
-        r = ",".join([s[x-2:x] for x in range(-3, -len(s), -2)][::-1] + [s[-3:]])
-        if neg:
-            r = "-" + r
-        return "".join([r] + d)
-# p = formatinr(round(-111000001))
-# p = formatinr(str(Roundoff(float(-111000001))))
-p=0.53
-print(round(p),type(p))
-p = formatinr(p,roundoff=True)
-print("{}".format(p), type(p),"LLLLLLLLLLLL")
+# def formatinr(number,roundoff=None):
+#     if isinstance(number, str):
+#         # if number == '' : 
+#         #     return ''
+#         # if number == '-' : 
+#         #     return '-'
+#         try:
+#             if int(eval(number)) < 0:
+#                 neg = True
+#                 number = abs(eval(number))
+#         except:
+#             return number
+#         else:
+#             neg = False
+#         if roundoff:
+#             number = float(number)
+#             number = Roundoff(number, 2)
+#         s, *d = str(number).partition(".")
+#         r = ",".join([s[x-2:x] for x in range(-3, -len(s), -2)][::-1] + [s[-3:]])
+#         if neg:
+#             r = "-" + r
+#         return "".join([r] + d)
+#     else:
+#         if int(number) < 0:
+#             neg = True
+#             number = abs(number)
+#         else:
+#             neg = False
+#         if roundoff:
+#             number = float(number)
+#             number = Roundoff(number,2)
+#         s, *d = str(number).partition(".")
+#         r = ",".join([s[x-2:x] for x in range(-3, -len(s), -2)][::-1] + [s[-3:]])
+#         if neg:
+#             r = "-" + r
+#         return "".join([r] + d)
+# # p = formatinr(round(-111000001))
+# # p = formatinr(str(Roundoff(float(-111000001))))
+# p=52589 - 741259
+# print(round(p),type(p))
+# # p = formatinr(p,roundoff=True)
+# print("{}".format(formatinr(p,roundoff=True)), type(p),"LLLLLLLLLLLL")
 
+
+# import json
+# result = {"value": "Positive", "comment": "fgchvjbn"}
+# # result = json.dumps(result) 
+# result = json.loads(result)
+
+# value = result['value']
+# # comment = result_json['comment']
+# print(value)
+
+
+# def formatinr(number,roundoff=None):
+#     if isinstance(number, str):
+#         try:
+#             if int(eval(number)) < 0:
+#                 neg = True
+#                 number = eval(number)
+#         except:
+#             return number
+#         else:
+#             neg = False
+#         if roundoff:
+#             number = float(number)
+#             number = Roundoff(number, 2)
+#         s, *d = str(number).partition(".")
+#         r = ",".join([s[x-2:x] for x in range(-3, -len(s), -2)][::-1] + [s[-3:]])
+#         if neg:
+#             r = "-" + r
+#         return "".join([r] + d)
+#     else:
+#         if int(number) < 0:
+#             neg = True
+#             number = abs(number)
+#         else:
+#             neg = False
+#         if roundoff:
+#             number = float(number)
+#             number = Roundoff(number,2)
+#         s, *d = str(number).partition(".")
+#         r = ",".join([s[x-2:x] for x in range(-3, -len(s), -2)][::-1] + [s[-3:]])
+#         if neg:
+#             r = "-" + r
+#         return "".join([r] + d)
+    
+# p=str(-741259)
+# # print(round(p),type(p))
+# # p = formatinr(p,roundoff=True)
+# print(formatinr(p), type(p),"LLLLLLLLLLLL")
+address_line_1 = '1234567891011121314151617181912021222324252627282930fghgvbdsjhfbkahe;euhljfbsd,mvn ,.szndlfhajhbgjasdz vm zsdkj.f'
+address_line_2 = '1234567891011121314151617181912021222324252627282930121qwertyuiop[lkjhgfdszxcvbnm,oiuytrewertyui]'
+address = ""
+if address_line_1 and len(address_line_1)>100:
+    wrap_text = textwrap.wrap(address_line_1, width=100)
+    address+=wrap_text[0]
+if address_line_2 and len(address_line_2)>100:
+    wrap_text = textwrap.wrap(address_line_2, width=100)
+    address+=(", " + wrap_text[0])
+
+print(address)

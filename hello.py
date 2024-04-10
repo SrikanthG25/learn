@@ -416,14 +416,15 @@ def Roundoff(n, decimals=0):
 # # print(round(p),type(p))
 # # p = formatinr(p,roundoff=True)
 # print(formatinr(p), type(p),"LLLLLLLLLLLL")
-address_line_1 = '1234567891011121314151617181912021222324252627282930fghgvbdsjhfbkahe;euhljfbsd,mvn ,.szndlfhajhbgjasdz vm zsdkj.f'
-address_line_2 = '1234567891011121314151617181912021222324252627282930121qwertyuiop[lkjhgfdszxcvbnm,oiuytrewertyui]'
-address = ""
-if address_line_1 and len(address_line_1)>100:
-    wrap_text = textwrap.wrap(address_line_1, width=100)
-    address+=wrap_text[0]
-if address_line_2 and len(address_line_2)>100:
-    wrap_text = textwrap.wrap(address_line_2, width=100)
-    address+=(", " + wrap_text[0])
+# address_line_1 = '1234567891011121314151617181912021222324252627282930fghgvbdsjhfbkahe;euhljfbsd,mvn ,.szndlfhajhbgjasdz vm zsdkj.f'
+# address_line_2 = '1234567891011121314151617181912021222324252627282930121qwertyuiop[lkjhgfdszxcvbnm,oiuytrewertyui]'
+# address = ""
+# if address_line_1 and len(address_line_1)>100:
+#     wrap_text = textwrap.wrap(address_line_1, width=100)
+#     address+=wrap_text[0]
+# if address_line_2 and len(address_line_2)>100:
+#     wrap_text = textwrap.wrap(address_line_2, width=100)
+#     address+=(", " + wrap_text[0])
 
-print(address)
+# print(address)
+ 

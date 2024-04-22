@@ -268,6 +268,17 @@
 
 import math
 import textwrap
+
+from bs4 import BeautifulSoup
+from reportlab.lib import colors
+from reportlab.platypus import Paragraph,Spacer,PageBreak,SimpleDocTemplate
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.enums import TA_LEFT,TA_RIGHT,TA_CENTER
+from reportlab.lib.styles import ParagraphStyle
+# from django_conflux.async_views import status
+# from django_conflux.async_views import Response
+
+from django.http import HttpResponse
 def Roundoff(n, decimals=0):
     multiplier = 10 ** decimals
     return math.floor(n*multiplier + 0.5) / multiplier
@@ -427,4 +438,95 @@ def Roundoff(n, decimals=0):
 #     address+=(", " + wrap_text[0])
 
 # print(address)
- 
+
+
+# def html_to_reportlab(html_data) -> str:
+    # try:
+        # if not html_data:
+        #     return []
+
+        # response = HttpResponse(content_type='application/pdf')
+        # response['Content-Disposition'] = 'attachment; filename="hello_world.pdf"'
+        # doc = SimpleDocTemplate(response, pagesize=letter)
+
+        # text_alignments = {
+        #     'left': ParagraphStyle(name='Normal', alignment=0),
+        #     'center': ParagraphStyle(name='Normal', alignment=1),
+        #     'right': ParagraphStyle(name='Normal', alignment=2),
+        # }
+
+        # soup = BeautifulSoup(html_data, 'html.parser')  
+        # paragraphs = []
+
+        # for element in soup.find_all(recursive=False):
+        #     tag_name = element.name
+        #     if tag_name in ['div', 'span', 'i', 'b', 'u']:
+        #         style = element.get('style', '')
+        #         alignment = 'left'
+        #         if 'text-align' in style:
+        #             alignment = style.split('text-align: ')[1].split(';')[0]
+        #         content = element.text.strip()
+        #         p_style = text_alignments.get(alignment, text_alignments['left'])
+        #         paragraphs.append(Paragraph(content, p_style))
+
+        # doc.build(paragraphs)
+        # return response
+
+        
+#         if not html_data:
+#             return ""
+#         response = HttpResponse(content_type='application/pdf')
+#         response['Content-Disposition'] = 'attachment; filename="hello_world.pdf"'
+#         doc = SimpleDocTemplate(response, pagesize=letter)
+#         text_alignments = {
+#             'left': TA_LEFT,
+#             'center': TA_CENTER,
+#             'right': TA_RIGHT,
+#         }
+#         soup = BeautifulSoup(html_data, 'html.parser')
+#         paragraphs = []
+#         combined_content = ''
+#         for element in soup.find_all(recursive=False):
+#             tag_name = element.name
+#             if tag_name in ['div', 'span', 'i', 'b', 'u']:
+#                 style = element.get('style', '')
+#                 alignment = 'left'
+#                 if 'text-align' in style:
+#                     alignment = style.split('text-align: ')[1].split(';')[0]
+#                 content = element.text.strip()
+#                 p_style = ParagraphStyle(name='Normal', alignment=text_alignments.get(alignment, TA_LEFT))
+#                 if not element.find_all():
+#                     paragraphs.append(Paragraph(content, p_style))
+#                 else:
+#                     content =''
+#                     for i in element.contents:
+#                         if i.name not in ['span']:
+#                             content += '{}'.format(i)
+#                         else:
+#                             content += '<div>{}</div>'.format(i)
+#                     paragraphs.append(Paragraph(content, p_style))
+#         doc.build(paragraphs)
+#         return paragraphs
+    
+#     except Exception as e:
+#         raise Exception 
+# print(1111111111111111111111111111111)
+
+
+def search(arr,key):
+    for i in arr:
+        if i == key:
+            return key
+size_arr = int(input("Enter the size : "))
+arr = []
+for i in range(size_arr):
+    ele = int(input("Enter the value : "))
+    arr.append(ele)
+key = int(input("Enter search key : "))
+result = search(arr , key)
+if result == key:
+    print("Successfully found {}".format(key))
+else:
+    print("UnSuccessfully found {}".format(key))
+
+

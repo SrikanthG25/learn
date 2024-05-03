@@ -396,10 +396,10 @@ def Roundoff(n, decimals=0):
 #             if int(eval(number)) < 0:
 #                 neg = True
 #                 number = eval(number)
+#             else:
+#                 neg = False
 #         except:
 #             return number
-#         else:
-#             neg = False
 #         if roundoff:
 #             number = float(number)
 #             number = Roundoff(number, 2)
@@ -513,20 +513,57 @@ def Roundoff(n, decimals=0):
 # print(1111111111111111111111111111111)
 
 
-def search(arr,key):
-    for i in arr:
-        if i == key:
-            return key
-size_arr = int(input("Enter the size : "))
-arr = []
-for i in range(size_arr):
-    ele = int(input("Enter the value : "))
-    arr.append(ele)
-key = int(input("Enter search key : "))
-result = search(arr , key)
-if result == key:
-    print("Successfully found {}".format(key))
-else:
-    print("UnSuccessfully found {}".format(key))
+# def search(arr,key):
+#     for i in arr:
+#         if i == key:
+#             return key
+# size_arr = int(input("Enter the size : "))
+# arr = []
+# for i in range(size_arr):
+#     ele = int(input("Enter the value : "))
+#     arr.append(ele)
+# key = int(input("Enter search key : "))
+# result = search(arr , key)
+# if result == key:
+#     print("Successfully found {}".format(key))
+# else:
+#     print("UnSuccessfully found {}".format(key))
+
+# def compress_string(s):
+#     compressed_string = ''
+#     count = 1
+#     for i in range(len(s)):
+#         print('ooooooo')
+#         if i < len(s)-1 and s[i] == s[i+1]:
+#             count += 1
+#         else:
+#             compressed_string += s[i] + str(count)
+#             count = 1
+#     return compressed_string
+
+# # s = 'aaaabbbccczzzzzzooooooooooooooooooooooooooozzzzzzzzzzzzzzzzzz'
+# # compressed = compress_string(s)
+# # print(compressed)
+
+# s = 'aaaabbbccczzzzzzooooooozzzzzzzz'
+# dic={}
+# count =0
+# for i in range(len(s)):
+#     if i =='a':
+#         if 'a' not in dic:
+#             dic['a'] = 1
+#         dic['a'] += count
+#     print(dic)
+
+# from datetime import datetime
+# # today_date = datetime.date.today()
+# today_date = datetime.now().date()
+
+# print(today_date)  
 
 
+from num2words import num2words
+
+number = 1232223
+english_words = num2words(number)
+print(english_words)

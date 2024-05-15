@@ -59,3 +59,5 @@ def number_to_words(amount, currency_type):
 
 print(number_to_words(123456789.12, currency_type))
 print(number_to_words(123456789.23, currency_type_1)) 
+
+

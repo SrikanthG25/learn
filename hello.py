@@ -783,24 +783,33 @@ from num2words import num2words
 # print(number_to_words(123456.78))   # Output: "one hundred twenty-three thousand four hundred fifty-six dollars and seventy-eight cents"
 # print(number_to_words(1234567890123)) # Output: "one trillion two hundred thirty-four billion five hundred sixty-seven million eight hundred ninety thousand one hundred twenty-three dollars"
 
-from num2words import num2words
+# from num2words import num2words
 
-currency = 'INR'
+# currency = 'INR'
 
-a = 1234567
-if currency == 'USD':
-    lan = 'en_US'
-elif currency == 'INR':
-    lan = 'en_IN'
-print(num2words(a,lang= lan))
+# a = 1234567
+# if currency == 'USD':
+#     lan = 'en_US'
+# elif currency == 'INR':
+#     lan = 'en_IN'
+# print(num2words(a,lang= lan))
 
-currency = 'USD'
+# currency = 'USD'
 
-a = 123456789102
-if currency == 'USD':
-    lan = 'en_US'
-elif currency == 'INR':
-    lan = 'en_IN'
-print(num2words(a,lang= lan))
+# a = 123456789102
+# if currency == 'USD':
+#     lan = 'en_US'
+# elif currency == 'INR':
+#     lan = 'en_IN'
+# print(num2words(a,lang= lan))
 
-lan = 'en_US' if currency == 'USD' else 'en_IN'
+# lan = 'en_US' if currency == 'USD' else 'en_IN'
+doctor_name = 'Dr.A.Nirupan Chakkaravarthy MBBS.,FID(RLAUK).,FDFM.,CCEBDM'
+if doctor_name and len(doctor_name) > 30:
+    wrap_text = textwrap.wrap(doctor_name.upper(), width=30)
+    # tableobj.append(['Doctor: {}'.format(wrap_text[0]), ''])
+    # tableobj.append(['             {}'.format(wrap_text[1]), ''])
+    print('Doctor: {}'.format(wrap_text[0]), '')
+    print('        {}'.format(wrap_text[1]), '')
+else:
+    print('Doctor: {}'.format(doctor_name), '')
